@@ -1,11 +1,16 @@
 // Copyright (c) 2015 - 2017 Markus Kohlhase <mail@markus-kohlhase.de>
 
-#![deny(missing_docs,
-        missing_debug_implementations, missing_copy_implementations,
-        trivial_casts, trivial_numeric_casts,
-        unsafe_code,
-        unstable_features,
-        unused_import_braces, unused_qualifications)]
+#![deny(
+  missing_docs,
+  missing_debug_implementations,
+  missing_copy_implementations,
+  trivial_casts,
+  trivial_numeric_casts,
+  unsafe_code,
+  unstable_features,
+  unused_import_braces,
+  unused_qualifications
+)]
 
 //! [r2d2-cypher](https://github.com/flosse/r2d2-cypher) is a
 //! [r2d2](https://github.com/sfackler/r2d2) connection pool for
@@ -32,11 +37,10 @@
 //! }
 //! ```
 
-extern crate r2d2;
-extern crate rusted_cypher;
+use r2d2;
 
-use rusted_cypher::GraphClient;
 use rusted_cypher::error::GraphError;
+use rusted_cypher::GraphClient;
 
 /// A struct that holds connection specific information.
 #[derive(Debug)]
