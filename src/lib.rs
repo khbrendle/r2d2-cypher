@@ -22,8 +22,6 @@
 //! # Example
 //!
 //! ```
-//! extern crate r2d2;
-//! extern crate r2d2_cypher;
 //!
 //! use r2d2::Pool;
 //! use r2d2_cypher::CypherConnectionManager;
@@ -31,16 +29,15 @@
 //! pub fn main() {
 //!   let db_url  = "http://neo4j:neo4j@127.0.0.1:7474/db/data";
 //!   let manager = CypherConnectionManager{url:db_url.to_owned()};
-//!   let pool    = Pool::builder().max_size(5).build(manager).unwrap();
+//!   let pool    = Pool::new(manager).unwrap();
 //!   let client  = pool.clone().get().unwrap();
-//!   let result  = client.cypher().exec("MATCH (n)-[r]->() RETURN n");
+//!   let result  = client.exec("MATCH (n)-[r]->() RETURN n");
 //! }
 //! ```
 
 use r2d2;
 
-use rusted_cypher::error::GraphError;
-use rusted_cypher::GraphClient;
+use rusted_cypher::{error::GraphError, GraphClient};
 
 /// A struct that holds connection specific information.
 #[derive(Debug)]
